@@ -1,0 +1,5 @@
+git branch = ดูว่าตอนนี้มี branch อะไรบ้าง
+git branch pure = สร้าง branch ของเพียวขึ้นมา
+ *หมายเหตุ : พอสร้าง branch แล้วยังคงมีไฟล์อยู่ เหมือนมัน checkout
+git checkout pure = ย้าย branch ปัจจุบันไปที่เพียว
+git push --set-upstream origin pure = เพื่อ push code เพียวไปบน server 
