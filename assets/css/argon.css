@@ -7302,7 +7302,9 @@ a.close.disabled {
 }
 
 .bg-primary {
-    background-color: #5e72e4 !important;
+    /*alerter default : background-color: #5e72e4 !important; */
+    background: rgb(94, 114, 228);
+    background: linear-gradient(60deg, rgba(94, 114, 228, 1) 0%, rgba(94, 114, 228, 1) 0%, rgba(94, 114, 228, 1) 40%, rgba(0, 212, 255, 1) 90%);
 }
 
 a.bg-primary:hover,
