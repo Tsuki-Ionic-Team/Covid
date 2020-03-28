@@ -17,6 +17,9 @@
     <!-- Page plugins -->
     <!-- Argon CSS -->
     <link rel="stylesheet" href="assets/css/argon.css?v=1.2.0" type="text/css">
+    <!-- Mapbox -->
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.css' rel='stylesheet' />
 </head>
 
 <body>
@@ -355,7 +358,8 @@
             <div class="row">
                 <div class="col">
                     <div class="card border-0">
-                        <div id="map-default" class="map-canvas" data-lat="40.748817" data-lng="-73.985428" style="height: 600px;"></div>
+                        <div id='map' class="map-canvas" style="height: 600px;"></div>
+                        <!-- <div id="map-default" class="map-canvas" data-lat="40.748817" data-lng="-73.985428" style="height: 600px;"></div> -->
                     </div>
                 </div>
             </div>
@@ -487,6 +491,8 @@
     <script src="assets/vendor/chart.js/dist/Chart.extension.js"></script>
     <!-- Argon JS -->
     <script src="assets/js/argon.js?v=1.2.0"></script>
+    <!-- Mapbox JS -->
+    <script src="assets/js/mapbox.js"></script>
 </body>
 
 </html>
