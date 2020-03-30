@@ -3,10 +3,15 @@
         var map = new mapboxgl.Map({
             container: 'map',
             style: 'mapbox://styles/mapbox/streets-v10',
-            // center: [-122.662323, 45.523751], // starting position
-            center: [101.228492, 12.565],
-            zoom: 4.6
+            center: [-122.662323, 45.523751], // starting position
+            zoom: 12
         });
+        // set the bounds of the map
+        var bounds = [
+            [-123.069003, 45.395273],
+            [-122.303707, 45.612333]
+        ];
+        map.setMaxBounds(bounds);
 
         // initialize the map canvas to interact with later
         var canvas = map.getCanvasContainer();
