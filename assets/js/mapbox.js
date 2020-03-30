@@ -1,84 +1,53 @@
         // add the JavaScript here
+
         mapboxgl.accessToken = 'pk.eyJ1IjoiZGV2YWxlcnRlciIsImEiOiJjazhiYWVlMjMwNDU1M2ZucGF3dWVlYzU4In0.AHdSxfPkWwTQmMgUJ-8Tvg';
         var map = new mapboxgl.Map({
             container: 'map',
-            style: 'mapbox://styles/mapbox/streets-v10',
-            // center: [-122.662323, 45.523751], // starting position
-            center: [101.228492, 12.565],
+            style: 'mapbox://styles/devalerter/ck8bc1stc0r3v1iqqg27s9c55',
+            center: [101.228492, 12.565], // starting position
             zoom: 4.6
         });
 
-        // initialize the map canvas to interact with later
-        var canvas = map.getCanvasContainer();
-
-        // an arbitrary start will always be the same
-        // only the end or destination will change
-        var start = [-122.662323, 45.523751];
-
-        // this is where the code for the next step will go
-        // create a function to make a directions request
-        function getRoute(end) {
-            // make a directions request using cycling profile
-            // an arbitrary start will always be the same
-            // only the end or destination will change
-            var start = [-122.662323, 45.523751];
-            var url = 'https://api.mapbox.com/directions/v5/mapbox/cycling/' + start[0] + ',' + start[1] + ';' + end[0] + ',' + end[1] + '?steps=true&geometries=geojson&access_token=' + mapboxgl.accessToken;
-
-            // make an XHR request https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest
-            var req = new XMLHttpRequest();
-            req.open('GET', url, true);
-            req.onload = function() {
-                var json = JSON.parse(req.response);
-                var data = json.routes[0];
-                var route = data.geometry.coordinates;
-                var geojson = {
-                    type: 'Feature',
-                    properties: {},
-                    geometry: {
-                        type: 'LineString',
-                        coordinates: route
-                    }
-                };
-                // if the route already exists on the map, reset it using setData
-                if (map.getSource('route')) {
-                    map.getSource('route').setData(geojson);
-                } else { // otherwise, make a new request
-                    map.addLayer({
-                        id: 'route',
-                        type: 'line',
-                        source: {
-                            type: 'geojson',
-                            data: {
-                                type: 'Feature',
-                                properties: {},
-                                geometry: {
-                                    type: 'LineString',
-                                    coordinates: geojson
-                                }
-                            }
-                        },
-                        layout: {
-                            'line-join': 'round',
-                            'line-cap': 'round'
-                        },
-                        paint: {
-                            'line-color': '#3887be',
-                            'line-width': 5,
-                            'line-opacity': 0.75
-                        }
-                    });
-                }
-                // add turn instructions here at the end
-            };
-            req.send();
-        }
-
         map.on('load', function() {
-            // make an initial directions request that
-            // starts and ends at the same location
-            getRoute(start);
+            // Add a source for the state polygons.
+            map.addSource('states', {
+                'type': 'geojson',
+                'data': 'https://raw.githubusercontent.com/apisit/thailand.json/master/thailandwithdensity.json'
+            });
 
-            // Add starting point to the map
+            // Add a layer showing the state polygons.
+            map.addLayer({
+                'id': 'states-layer',
+                'type': 'fill',
+                'source': 'states',
+                'paint': {
+                    'fill-color': 'rgba(100, 200, 240, 0.4)',
+                    'fill-outline-color': 'rgba(0, 0, 0, 0.5)'
+                }
+            });
+
+            // When a click event occurs on a feature in the states layer, open a popup at the
+            // location of the click, with description HTML from its properties.
+            map.on('click', 'states-layer', function(e) {
+                new mapboxgl.Popup()
+                    .setLngLat(e.lngLat)
+                    .setHTML(e.features[0].properties.name)
+                    .addTo(map);
+            });
+
+            // Change the cursor to a pointer when the mouse is over the states layer.
+            map.on('mouseenter', 'states-layer', function() {
+                map.getCanvas().style.cursor = 'pointer';
+            });
+
+            // Change it back to a pointer when it leaves.
+            map.on('mouseleave', 'states-layer', function() {
+                map.getCanvas().style.cursor = '';
+            });
+
+            // [ ======================================================================= ]
+
+            // Add Pin Marker
             map.addLayer({
                 id: 'point',
                 type: 'circle',
@@ -91,7 +60,7 @@
                             properties: {},
                             geometry: {
                                 type: 'Point',
-                                coordinates: start
+                                coordinates: [101.228492, 12.565]
                             }
                         }]
                     }
@@ -101,5 +70,5 @@
                     'circle-color': '#3887be'
                 }
             });
-            // this is where the code from the next step will go
+
         });

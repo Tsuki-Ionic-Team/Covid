@@ -1,0 +1,87 @@
+{
+  "author": {
+    "email": "in@ega.or.th",
+    "name": "เจ้าหน้าที่ฝ่าย IN (026126060)"
+  },
+  "description": "ข้อมูลพิกัด&nbsp; LAT/LONG ที่บ่งชี้ชื่อตำบล อำเภอ จังหวัด   (ในรูปแบบ Microsoft Excel) ซึ่งได้จัดทำจากข้อมูลขอบเขตการปกครองของกรมการปกครอง",
+  "keywords": [
+    "LAT_LONG",
+    "ข้อมูลตำบล",
+    "ข้อมูลพิกัด"
+  ],
+  "license": {
+    "title": "DGA Open Government License",
+    "type": "ogl"
+  },
+  "name": "item_c6d42e1b-3219-47e1-b6b7-dfe914f27910",
+  "resources": [
+    {
+      "description": "ข้อมูลพิกัด  LAT/LONG ที่บ่งชี้ชื่อตำบล อำเภอ จังหวัด",
+      "format": "XLSX",
+      "hash": "1a2f1b05167caa2888494f77c619fbdc",
+      "name": "kh-muulphikad-lat-long-thiibngchiichuue-tambl-ameph-cchanghwad",
+      "path": "kh-muulphikad-lat-long-thiibngchiichuue-tambl-ameph-cchanghwad.xlsx",
+      "schema": {
+        "fields": [
+          {
+            "name": "AD_LEVEL",
+            "type": "number"
+          },
+          {
+            "name": "TA_ID",
+            "type": "number"
+          },
+          {
+            "name": "TAMBON_T",
+            "type": "string"
+          },
+          {
+            "name": "TAMBON_E",
+            "type": "string"
+          },
+          {
+            "name": "AM_ID",
+            "type": "number"
+          },
+          {
+            "name": "AMPHOE_T",
+            "type": "string"
+          },
+          {
+            "name": "AMPHOE_E",
+            "type": "string"
+          },
+          {
+            "name": "CH_ID",
+            "type": "number"
+          },
+          {
+            "name": "CHANGWAT_T",
+            "type": "string"
+          },
+          {
+            "name": "CHANGWAT_E",
+            "type": "string"
+          },
+          {
+            "name": "LAT",
+            "type": "number"
+          },
+          {
+            "name": "LONG",
+            "type": "number"
+          }
+        ]
+      },
+      "sources": [
+        {
+          "path": "https://opendata.data.go.th/dataset/5370f16a-b553-45ca-929d-7db9a6fc5043/resource/48039a2a-2f01-448c-b2a2-bb0d541dedcd/download/tambon.xlsx",
+          "title": "ข้อมูลพิกัด  LAT/LONG ที่บ่งชี้ชื่อตำบล อำเภอ จังหวัด"
+        }
+      ],
+      "title": "ข้อมูลพิกัด  LAT/LONG ที่บ่งชี้ชื่อตำบล อำเภอ จังหวัด"
+    }
+  ],
+  "title": "ข้อมูลพิกัด  LAT/LONG ที่ตั้งตำบล",
+  "version": "1.0"
+}
