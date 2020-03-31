@@ -14,6 +14,7 @@
                 'type': 'geojson',
                 // 'data': 'https://raw.githubusercontent.com/apisit/thailand.json/master/thailandwithdensity.json'
                 'data': 'http://localhost/@work/Covid/service/province/thailand.json'
+                    // 'data': 'http://localhost/@work/Covid/service/province/test.json'
             });
 
             // Add a layer showing the state polygons.
@@ -32,7 +33,8 @@
             map.on('click', 'states-layer', function(e) {
                 new mapboxgl.Popup()
                     .setLngLat(e.lngLat)
-                    .setHTML(e.features[0].properties.name)
+                    // .setHTML(e.features[0].properties.name)
+                    .setHTML(e.features[0].properties.CHANGWAT_T)
                     .addTo(map);
             });
 

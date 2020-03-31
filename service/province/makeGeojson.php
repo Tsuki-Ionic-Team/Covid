@@ -55,7 +55,7 @@ if ( $xlsx = SimpleXLSX::parse($filename) ) {
             }
             $geometry  = new StdClass;
             $geometry->type = "Polygon";
-            $geometry->coordinates = $coordinates;
+            $geometry->coordinates = [$coordinates];
 
             $option = array(
                 'type' => "Feature",
