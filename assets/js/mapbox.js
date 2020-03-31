@@ -13,7 +13,10 @@
             map.addSource('states', {
                 'type': 'geojson',
                 // 'data': 'https://raw.githubusercontent.com/apisit/thailand.json/master/thailandwithdensity.json'
-                'data': 'http://localhost/@work/Covid/service/province/thailand.json'
+                // local pure
+                // 'data': 'http://localhost/@work/Covid/service/province/thailand.json'
+                // local alert
+                'data': 'http://localhost/covid-19.keancode/service/province/thailand.json'
             });
 
             // Add a layer showing the state polygons.
