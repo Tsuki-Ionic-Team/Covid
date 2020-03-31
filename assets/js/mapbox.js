@@ -12,7 +12,8 @@
             // Add a source for the state polygons.
             map.addSource('states', {
                 'type': 'geojson',
-                'data': 'https://raw.githubusercontent.com/apisit/thailand.json/master/thailandwithdensity.json'
+                // 'data': 'https://raw.githubusercontent.com/apisit/thailand.json/master/thailandwithdensity.json'
+                'data': 'http://localhost/@work/Covid/service/province/thailand.json'
             });
 
             // Add a layer showing the state polygons.
