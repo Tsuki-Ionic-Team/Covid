@@ -14,7 +14,6 @@
                 'type': 'geojson',
                 // 'data': 'https://raw.githubusercontent.com/apisit/thailand.json/master/thailandwithdensity.json'
                 'data': 'http://localhost/@work/Covid/service/province/thailand.json'
-                    // 'data': 'http://localhost/@work/Covid/service/province/test.json'
             });
 
             // Add a layer showing the state polygons.
